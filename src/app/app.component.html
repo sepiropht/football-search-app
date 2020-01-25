@@ -1,5 +1,17 @@
-<html>
-  <body>
-    <h1>Yeah</h1>
-  </body>
-</html>
+<div class="App">
+  <div class="App-header">
+    <h2>Ligue Européenes de football</h2>
+  </div>
+  <form class="search">
+    <input
+      class="searchTerm"
+      type="text"
+      name="search"
+      placeholder="league"
+      [placeholder]="placeholder"
+      [(ngModel)]="searchTerm"
+      ng-model-options="{debounce: 1000}"
+      (input)="search()"
+    />
+  </form>
+</div>

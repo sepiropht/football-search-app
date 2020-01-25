@@ -1,19 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { Services } from "./services";
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+  styleUrls: ["./app.component.css"],
   providers: [Services]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   leagues = [];
+  placeholder = 'Votre recherche';
+  searchTerm: string;
+  
 
   constructor(private services: Services) {}
 
-  ngOnInit() {
-    this.services.searchLeagues().then((leagues: any[]) => {
+  search() {
+    this.services.searchLeagues(this.searchTerm).then((leagues: any[]) => {
       console.log(leagues)
     });
   }

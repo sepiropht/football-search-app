@@ -8,9 +8,9 @@ export class Services {
   constructor(private http: Http) {}
 
   // get("/api/contacts")
-  searchLeagues(): Promise<void | any[]> {
+  searchLeagues(search: string): Promise<void | any[]> {
     return this.http
-      .get(this.searchUrl)
+      .get(`${this.searchUrl}?search=${search}`)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);

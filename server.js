@@ -2,10 +2,16 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose")
 
 const leagues = require("./api/routes/leagues");
 
 const app = express();
+
+
+// mongoose.connect(
+//   "mongodb://root:azerty@ds139480.mlab.com:39480/pinterest-clone"
+// );
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
