@@ -7,17 +7,17 @@ const leagueSchema = mongoose.Schema({
     require: true
   },
 
-  screen_name: {
+  name: {
     type: String,
     require: true
   },
-  date: {
-    type: Date,
-    default: Date.now
+  sport: {
+    type: String,
+    require: true
   }
 });
 
-const League = (module.exports = mongoose.model("League", leagueSchema));
+const League = (module.exports = mongoose.model("leagues", leagueSchema));
 
 module.exports.getLeagues = function(callback) {
   League.find(callback);

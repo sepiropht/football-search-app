@@ -7,7 +7,7 @@ export class Services {
 
   constructor(private http: Http) {}
 
-  // get("/api/contacts")
+  // get("/api/v1/leagues/search")
   searchLeagues(search: string): Promise<void | any[]> {
     return this.http
       .get(`${this.searchUrl}?search=${search}`)
