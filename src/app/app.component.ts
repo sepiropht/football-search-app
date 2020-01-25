@@ -24,6 +24,12 @@ export class AppComponent {
       Promise.all(teamsIds.map(id => this.services.getTeamById(id)))
         .then(teams => {
           console.log(teams);
+          const playerIds = teams.flatMap(({ players }) =>
+            players.map(id => id)
+          );
+          Promise.all(
+            playerIds.map(id => this.services.getPlayerById(id))
+          ).then(players => console.log(players));
         })
         .catch(err => console.log(err));
     });

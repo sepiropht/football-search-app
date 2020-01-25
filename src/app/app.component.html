@@ -10,7 +10,6 @@
       placeholder="league"
       [placeholder]="placeholder"
       [(ngModel)]="searchTerm"
-      ng-model-options="{debounce: 1000}"
       (input)="search()"
     />
   </form>
