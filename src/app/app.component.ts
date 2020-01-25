@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Services } from "./services";
-import { FormControl } from '@angular/forms';
+import { league, team } from "./interfaces";
 
 @Component({
   selector: "app-root",
@@ -9,16 +9,23 @@ import { FormControl } from '@angular/forms';
   providers: [Services]
 })
 export class AppComponent {
-  leagues = [];
-  placeholder = 'Votre recherche';
+  leagues: Array<league>;
+  placeholder = "Votre recherche";
   searchTerm: string;
-  
 
   constructor(private services: Services) {}
 
   search() {
-    this.services.searchLeagues(this.searchTerm).then((leagues: any[]) => {
-      console.log(leagues)
+    this.services.searchLeagues(this.searchTerm).then(leagues => {
+      this.leagues = leagues;
+      console.log(this.leagues);
+      const teamsIds = this.leagues.flatMap(({ teams }) => teams.map(id => id));
+
+      Promise.all(teamsIds.map(id => this.services.getTeamById(id)))
+        .then(teams => {
+          console.log(teams);
+        })
+        .catch(err => console.log(err));
     });
   }
 }

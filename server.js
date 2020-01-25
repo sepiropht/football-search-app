@@ -9,6 +9,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 const leagues = require("./api/routes/leagues");
 
+const team = require("./api/routes/teams");
+
 const app = express();
 let db;
 
@@ -26,6 +28,7 @@ app.use(express.static(distDir));
 client.connect(err => {
   db = client.db("football")
   app.use("/api/v1/leagues", leagues(db));
+  app.use("/api/v1/team", team(db));
   const server = app.listen(process.env.PORT || 8080, () => {
     const port = server.address().port;
     console.log("App now running on port", port);

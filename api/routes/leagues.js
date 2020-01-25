@@ -6,9 +6,9 @@ module.exports = db => {
     const { search } = req.query;
     db.collection("leagues")
       .find({ name: { $regex: `^${search}` } })
-      .toArray(function(error, documents) {
+      .toArray((error, documents) => {
         if (error) throw error;
-        res.json({ documents });
+        res.send(documents);
       });
   });
 };
