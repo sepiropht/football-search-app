@@ -38,16 +38,6 @@ export class HomeComponent {
   fetchPlayer(team) {
     console.log(team)
     const playerIds = team.players.flatMap(id => id);
-
-
-    // this.router.navigate(['/players', 'id']).then(e => {
-    //   if (e) {
-    //     console.log("Navigation is successful!");
-    //   } else {
-    //     console.log("Navigation has failed!");
-    //   }
-    // });
-
     Promise.all(
       playerIds.map(id => this.services.getPlayerById(id))
     ).then(players =>  console.log(players));

@@ -76,21 +76,7 @@ body {
     width: 100%;
     position: relative;
   }
-  /* .search:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-family: "FontAwesome";
-    content: "\f002";
-    background: #8fc357;
-    text-align: center;
-    color: #fff;
-    border-radius: 5px;
-    -webkit-font-smoothing: subpixel-antialiased;
-  } */
+
   
   .searchTerm {
     width: 80%;

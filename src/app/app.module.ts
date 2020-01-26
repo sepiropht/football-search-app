@@ -8,14 +8,16 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { TeamComponent } from './components/team/team.component';
 import { PlayersComponent } from './components/players/players.component';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { PlayerComponent } from './components/player/player.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamComponent,
     PlayersComponent,
-    HomeComponent
+    HomeComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
