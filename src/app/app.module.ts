@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { TeamComponent } from './components/team/team.component'
+import { TeamComponent } from './components/team/team.component';
+import { PlayersComponent } from './components/players/players.component';
+import { HomeComponent } from './components/home/home.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamComponent
+    TeamComponent,
+    PlayersComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="App">
+    <div class="App-header">
+      <h2>Ligue Européenes de football</h2>
+    </div>
+    <form class="search">
+      <input
+        class="searchTerm"
+        type="text"
+        name="search"
+        placeholder="league"
+        [placeholder]="placeholder"
+        [(ngModel)]="searchTerm"
+        (input)="search()"
+      />
+    </form>
+    <ul>
+      <app-team
+        *ngFor="let team of teams"
+        [team]="team"
+        (click)="fetchPlayer(team)"
+      ></app-team>
+    </ul>
+  </div>
