@@ -1,1 +1,9 @@
-<p>{{player | json}}</p>
+<div class="card">
+    <img src="{{ player.thumbnail }}" alt="Avatar" style="width:50%">
+    <div class="container">
+      <h4><b>{{ player.name }}</b></h4>
+      <p>{{player.position}}</p>
+      <p>birthDate: {{ player.born | date:'fullDate'}}</p>
+      <p>price: {{ player.signin.amount | currency:'EUR' }}</p>
+    </div>
+</div> 

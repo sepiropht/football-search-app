@@ -4,7 +4,7 @@ import { player } from '../../interfaces';
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
   @Input() player: player;

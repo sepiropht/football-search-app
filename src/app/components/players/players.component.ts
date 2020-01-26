@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { player } from '../../interfaces';
 import { Services } from '../../services';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
-  styleUrls: ['./players.component.scss'],
+  styleUrls: ['./players.component.css'],
   providers: [Services]
 })
 export class PlayersComponent implements OnInit {
@@ -14,7 +14,7 @@ export class PlayersComponent implements OnInit {
   constructor(private service: Services) { }
 
   ngOnInit() {
-    const playersIds = window.history.state.state.data;
+    const playersIds = _.get(window.history, 'state.state.data', []);
     Promise.all(
       playersIds.map(id => this.service.getPlayerById(id))
     ).then(players =>  this.players = players);

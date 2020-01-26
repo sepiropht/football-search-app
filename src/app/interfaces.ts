@@ -15,6 +15,7 @@ export interface team {
 export interface player {
   _id: string;
   name: string;
+  position: string;
   thumbnail: string;
   signing: signing;
   born: Date;

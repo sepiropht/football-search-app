@@ -12,7 +12,7 @@ import { league, team, player } from "../../interfaces";
 export class HomeComponent {
   leagues: Array<league>;
   teams: Array<team>;
-  players: Array<player>
+  players: Array<player>;
   placeholder = "Votre recherche";
   searchTerm: string;
 
@@ -21,26 +21,13 @@ export class HomeComponent {
   search() {
     this.services.searchLeagues(this.searchTerm).then(leagues => {
       this.leagues = leagues;
-      console.log(this.leagues);
       const teamsIds = this.leagues.flatMap(({ teams }) => teams.map(id => id));
 
       Promise.all(teamsIds.map(id => this.services.getTeamById(id)))
         .then(teams => {
           this.teams = teams;
-          console.log(teams);
-
-  
         })
         .catch(err => console.log(err));
     });
-  }
-
-  fetchPlayer(team) {
-    console.log(team)
-    const playerIds = team.players.flatMap(id => id);
-    Promise.all(
-      playerIds.map(id => this.services.getPlayerById(id))
-    ).then(players =>  console.log(players));
-
   }
 }
