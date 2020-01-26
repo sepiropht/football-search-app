@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Services } from "./services";
-import { league, team } from "./interfaces";
+import { league, team, player } from "./interfaces";
 
 @Component({
   selector: "app-root",
@@ -10,6 +10,8 @@ import { league, team } from "./interfaces";
 })
 export class AppComponent {
   leagues: Array<league>;
+  teams: Array<team>;
+  players: Array<player>
   placeholder = "Votre recherche";
   searchTerm: string;
 
@@ -23,15 +25,21 @@ export class AppComponent {
 
       Promise.all(teamsIds.map(id => this.services.getTeamById(id)))
         .then(teams => {
+          this.teams = teams;
           console.log(teams);
-          const playerIds = teams.flatMap(({ players }) =>
-            players.map(id => id)
-          );
-          Promise.all(
-            playerIds.map(id => this.services.getPlayerById(id))
-          ).then(players => console.log(players));
+
+  
         })
         .catch(err => console.log(err));
     });
+  }
+
+  fetchPlayer(team) {
+    const playerIds = team.players.flatMap(id => id);
+
+    Promise.all(
+      playerIds.map(id => this.services.getPlayerById(id))
+    ).then(players => players);
+
   }
 }

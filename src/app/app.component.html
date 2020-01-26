@@ -13,4 +13,7 @@
       (input)="search()"
     />
   </form>
+  <ul>
+    <app-team *ngFor="let team of teams" [team]="team"  (click)="fetchPlayer(team)"></app-team>
+  </ul>
 </div>

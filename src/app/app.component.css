@@ -11,9 +11,7 @@ body {
   text-align: center;
 }
 
-
 .App-header {
-    
   text-align: center;
   background-color: #8fc357;
   height: 150px;
@@ -101,4 +99,8 @@ li {
   height: 40px;
   border-radius: 5px;
   outline: none;
+}
+
+ul {
+  list-style: none;
 }
