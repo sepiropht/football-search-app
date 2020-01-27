@@ -25,7 +25,6 @@ export class HomeComponent {
     this.isTeamsEmpty = false;
     this.services.searchLeagues(this.searchTerm).then(leagues => {
       this.leagues = leagues;
-      console.log(this.leagues);
       const teamsIds = this.leagues.flatMap(({ teams }) => teams.map(id => id));
       if(!teamsIds.length) {
         this.isTeamsEmpty = true;
