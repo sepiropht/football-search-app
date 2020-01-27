@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { Services } from "../../services";
 import { league, team, player } from "../../interfaces";
+import _ from "lodash";
 
 @Component({
   selector: "app-root",
@@ -15,13 +16,21 @@ export class HomeComponent {
   players: Array<player>;
   placeholder = "Votre recherche";
   searchTerm: string;
+  isTeamsEmpty: boolean;
+  leagueName: string;
 
   constructor(private services: Services, private router: Router) {}
 
   search() {
+    this.isTeamsEmpty = false;
     this.services.searchLeagues(this.searchTerm).then(leagues => {
       this.leagues = leagues;
+      console.log(this.leagues);
       const teamsIds = this.leagues.flatMap(({ teams }) => teams.map(id => id));
+      if(!teamsIds.length) {
+        this.isTeamsEmpty = true;
+        this.leagueName = _.get(this.leagues[0], 'name');
+      }
 
       Promise.all(teamsIds.map(id => this.services.getTeamById(id)))
         .then(teams => {

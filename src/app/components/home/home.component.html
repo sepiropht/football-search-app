@@ -1,6 +1,6 @@
 <div class="App">
     <div class="App-header">
-      <h2>Ligue Européenes de football</h2>
+      <h2>European football league</h2>
     </div>
     <form class="search">
       <input
@@ -19,4 +19,8 @@
         [team]="team"
       ></app-team>
     </ul>
+
+    <p *ngIf="isTeamsEmpty">
+      No teams found in the {{leagueName}}
+    </p>
   </div>
