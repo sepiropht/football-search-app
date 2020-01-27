@@ -1,27 +1,32 @@
-# MyProjectName
+# football-search-app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For the front run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For the backend just run npm start and it will start at `http://localhost:8080/`
 
-## Code scaffolding
+In developpement mode, we use proxy to avoid cors issue
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the frontend. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+When the server run it take the front code in /dist.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+this demo is hosted on [Now](https://zeit.co/)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Database
 
-## Further help
+The mongodb is host in cloud [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Doc Api
+
+* Search League: `GET api/v1/leagues/search/:search`
+* Get Team: `GET api/v1/team/id/:id`
+* GEt Player : `GET api/v1/player/id/:id`
