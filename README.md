@@ -1,5 +1,7 @@
 # football-search-app
 
+[![Demo](https://img.shields.io/badge/demo-online-blue.svg)](https://football-search-app.herokuapp.com/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 ## Development server
