@@ -18,12 +18,12 @@ Run `ng build` to build the frontend. The build artifacts will be stored in the 
 
 When the server run it take the front code in /dist.
 
-this demo is hosted on [Now](https://zeit.co/)
+this demo is hosted on [Heroku](https://www.heroku.com/)
 
 
 ## Database
 
-The mongodb is host in cloud [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+The mongodb is hosted in cloud [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 
 
