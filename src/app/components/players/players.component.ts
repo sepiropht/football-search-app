@@ -11,6 +11,7 @@ import _ from 'lodash';
 })
 export class PlayersComponent implements OnInit {
   players
+  isPlayerEmpty : boolean
 
   constructor(private service: Services, private location: Location) { }
 
@@ -18,7 +19,13 @@ export class PlayersComponent implements OnInit {
     const playersIds = _.get(window.history, 'state.state.data', []);
     Promise.all(
       playersIds.map(id => this.service.getPlayerById(id))
-    ).then(players =>  this.players = players);
+    ).then(players =>  { 
+      this.players = players;
+      if(!this.players.length) {
+        this.isPlayerEmpty = true;
+      }
+
+    });
   }
 
   back() {

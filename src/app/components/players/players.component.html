@@ -3,4 +3,5 @@
       <p (click)="back()"><strong>back</strong></p>
   </div>
   <app-player *ngFor="let player of players" [player]="player"></app-player>
+  <p *ngIf="isPlayerEmpty">no player in this team</p>
 </div>
