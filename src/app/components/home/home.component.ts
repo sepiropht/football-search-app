@@ -14,7 +14,7 @@ export class HomeComponent {
   leagues: Array<league>;
   teams: Array<team>;
   players: Array<player>;
-  placeholder = "Votre recherche";
+  placeholder = "Search";
   searchTerm: string;
   isTeamsEmpty: boolean;
   leagueName: string;
