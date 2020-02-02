@@ -23,7 +23,6 @@ export class HomeComponent {
 
   search() {
     this.isTeamsEmpty = false;
-    debugger
     if(!this.searchTerm.length) return;
     this.services.searchLeagues(this.searchTerm).then(leagues => {
       this.leagues = leagues;
